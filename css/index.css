@@ -1,0 +1,113 @@
+@charset "utf-8";
+.margin{
+	width:960px;
+	margin:0 auto;
+}
+
+
+.top{
+	padding-top:15px;
+	height:118px;
+	border-bottom:1px solid #333;
+	margin-bottom: 10px;
+}
+.top .top-t{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.top .top-t .meiciappBox span{
+	margin-right: 10px;;
+}
+.top .top-t .logo{
+	margin: 12px 0 0 170px;
+}
+.top .top-t .seek{
+	border:1px solid #afafaf;
+	height:24px;
+	width:156px;
+	margin-top:25px;
+}
+.top .top-t .seek .txt{
+	float: left;
+	height:24px;
+	width:126px;
+	border:none;
+	padding:0 3px;
+	font:12px/24px "微软雅黑";
+	color:#999;
+}
+.top .top-t .seek .btn{
+	float: right;
+	height:24px;
+	width:23px;
+	border:none;
+	background:url(../images/seek.jpg) no-repeat center;
+}
+.top .top-t .seek .seek-c{
+	width:1px;
+	height:18px;
+	background:#afafaf;
+	display:inline-block;
+	vertical-align:middle;
+}
+.top .nav li{
+	float: left;
+	height:33px;
+	width:96px;
+	background:#fff;
+	font:12px/33px "微软雅黑";
+	text-align: center;
+}
+.top .nav li a{
+	display: block;
+	height:33px;
+	width:96px;
+}
+.top .nav li .img-last{
+	margin-bottom: 2px;
+}
+.top .nav li a:hover{
+	cursor: pointer;
+	background:#8d0d39;
+	color:#fff;
+}
+
+.banner{
+	overflow: hidden;
+	height:500px;
+	width:960px;
+	position: relative;
+}
+.banner .img-wrapper{
+	width:600%;
+	height:100%;
+}
+.banner .img-wrapper .img-item{
+	float: left;
+	width:960px;
+	height:100%;
+}
+.banner .arrow{
+	position: absolute;
+	top:50%;
+	margin-top:-33px;
+	height:66px;
+	width:27px;
+}
+.banner .arrow-left{
+	left:10px;
+	background:url(../images/jt7.png) no-repeat 0 -201px;
+}
+.banner .arrow-right{
+	right:10px;
+	background:url(../images/jt7.png) no-repeat 0 -134px;
+}
+.banner .arrow-left:hover{
+	background:url(../images/jt7.png) no-repeat 0 0;
+	cursor:pointer;
+}
+.banner .arrow-right:hover{
+	background:url(../images/jt7.png) no-repeat 0 -67px;
+	cursor:pointer;
+}
+

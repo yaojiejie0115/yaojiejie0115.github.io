@@ -1,0 +1,106 @@
+@charset "utf-8";
+body{font:12px/24px "微软雅黑";color:#666;word-wrap:break-word;}
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0;}
+li{list-style:none;}
+a,u,del,s{text-decoration:none;color:#000;}
+a img{border:0;}
+i,em{font-style:normal;}
+b,th,strong{font-weight:normal;}
+img{vertical-align:middle;} 
+table{border-collapse:collapse;}
+input,textarea{outline:none;}
+
+.cu{cursor:pointer;}
+.clear{zoom:1;}
+.clear:after{content:"";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+.clearx{clear:both;}
+.over{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.vm{vertical-align:middle;display:inline-block;}
+.vcenter{width:0px;height:100%;vertical-align:middle;display:inline-block;}
+.dis100{display:block;width:100%;height:100%;}
+.ind2{text-indent:2em;}
+.bor0{border:0;}
+.l{float:left;}
+.r{float:right;}
+.pl_1{position:relative;top:-1px;}
+.pl_2{position:relative;top:-2px;}
+
+.header{
+	height:36px;
+	background-color:#f4f4f4;
+	color:#8e8e8e;
+	font:12px/36px "微软雅黑";
+}
+.header a{
+	color:#8e8e8e;
+	font:12px/36px "微软雅黑";
+	margin-right: 15px;
+}
+.header a:hover{
+	color:rgb(142,12,58)
+}
+.header .header-left span{
+	width:1px;
+	height:18px;
+	background:#ccc;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right: 15px;
+}
+.header .header-right li{
+	float: left;
+	padding-right:23px;
+}
+.header .header-right .second{
+	position: relative;
+}
+.header .header-right .second .second-box{
+	display: none;
+	position: absolute;
+	left:-93px;
+	height:60px;
+	width:160px;
+	border:1px solid #ccc;
+	text-align: center;
+	z-index: 1000;
+	background: #fff;
+}
+.header .header-right .second .second-box li{
+	margin-left:17px;
+}
+.header .header-right .second .second-box .second-box-r{
+	margin-left: 0;
+	margin-right:0;
+}
+.header .header-right .second .second-box p{
+	margin-bottom:8px;
+	font:12px/20px "";
+}
+.header .header-right .second:hover{
+	cursor: default;
+}
+.header .header-right .second em{
+	float: left;
+	display: block;
+	height:13px;
+	width:16px;
+	margin-left:2px;
+	margin-top: 12px;
+	background: url(../images/headico01.png) no-repeat 0 -15px;
+}
+.header .header-right .last{
+	padding-right:0;
+}
+.header .header-right .last a span{
+	width:0;
+	height:18px;
+	border-left:1px solid #fff;
+	border-right:1px solid #afafaf;
+	background:#ccc;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right: 6px;
+}
+.header .header-right .last a:hover{
+	color:#8e8e8e;
+}
