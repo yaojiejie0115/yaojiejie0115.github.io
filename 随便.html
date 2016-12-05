@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		</style>
+		
+	</head>
+	<body>
+		<!--轮播  可视区域-->
+		<div class="banner">
+			<!--轮播区域-->
+			<div class="banner-wrapper clear">
+				<a href="play.html" class="scroll"><img src="img/banner2.jpg"/></a>
+				<a href="play.html" class="scroll"><img src="img/banner3.jpg"/></a>
+				<a href="play.html" class="scroll"><img src="img/banner4.jpg"/></a>
+				<a href="play.html" class="scroll"><img src="img/banner5.jpg"/></a>
+				<a href="play.html" class="scroll"><img src="img/banner6.jpg"/></a>
+			</div>
+			<div class="margin">
+				<!--banner上面右边一块内容-->
+				<div class="banner-content-widget">
+					<div class="widget-top">
+						<div class="widget-top-top">
+							<p class="text">已有<b>666666</b>个客户成为</p>
+							<p>印通天下会员</p>
+						</div>
+						<div class="widget-top-bottom">
+							<a href="play.html">注册会员</a>
+							<p>注册会员享受更多的专属优惠</p>
+						</div>
+					</div>
+					<div class="widget-bottom">
+						<div class="widget-bottom-top">
+							<p>1.VIP服务，售后无忧</p>
+							<p>2.发票开具，保障权益</p>
+							<p>3.企业VI，随心定制</p>
+							<p>4.精选商品，快速便捷</p>
+							<p>5.一流印刷，质量保证</p>
+							<p>6.30天理赔，无后顾之忧</p>
+						</div>
+						<div class="widget-bottom-bottom">
+							<p>客服电话：<b>400-8987-365</b></p>
+						</div>
+					</div>
+				</div>
+				<!--小圆圈和左右按钮的框-->
+				<div class="banner-content-sub">
+					<!--左右按钮-->
+					<div class="arrow arrow-left"></div>
+					<div class="arrow arrow-right"></div>
+					<!--小圆圈-->
+					<div class="circles">
+						<div class="clear circle-wrapper"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<script type="text/javascript">
+			//轮播
+			var banner = {
+				main: $('.banner'),
+				imgWrapper: $('.banner .banner-wrapper'),
+				imgs: $('.banner .banner-wrapper .scroll img'),
+				rightBtn: $('.arrow-right'),
+				leftBtn: $('.arrow-left'),
+				circleWrap: $('.circles .circle-wrapper'),
+				navAllsort: $('.nav-allsort'),
+				circles: null,
+				yuan: '',
+				width: 0,
+				index: 0,
+				flag: false,
+				timer: null,
+				init: function(){
+					this.width = $('body').width();
+					
+					this.imgs.width(this.width);
+					
+					this.imgs.show();
+					
+					this.autoPlay();
+					
+					this.goStop();
+					
+					this.next();
+					
+					this.prev();
+					
+					this.madeCircle();
+					
+					this.circleFollow();
+				},
+				//自动轮播
+				autoPlay: function(){
+					var that = this;
+					timer = setInterval(function(){
+						that.index++;
+						that.index %= that.imgs.length;
+						that.imgSwitch();
+					},2000);
+				},
+				//鼠标进入停止轮播，离开继续自动轮播
+				goStop: function(){
+					var that = this;
+					this.main.hover(function(){
+						clearInterval(timer);
+					},function(){
+						that.autoPlay();
+					});
+					this.navAllsort.hover(function(){
+						clearInterval(timer);
+					},function(){
+						that.autoPlay();
+					});
+				},
+				//点击右边按钮到下一张
+				next: function(){
+					var that = this;
+					this.rightBtn.click(function(){
+						if(that.flag){
+							return;
+						}
+						that.index++;
+						that.imgSwitch();
+					});
+				},
+				//点击左边按钮到上一张
+				prev: function(){
+					var that = this;
+					this.leftBtn.click(function(){
+						if(that.flag){
+							return;
+						}
+						that.index--;
+						that.imgSwitch();
+					});
+				},
+				//制造小圆圈
+				madeCircle: function(){
+					for(var j = 0; j < this.imgs.length; j++){
+						this.yuan += '<a href="javascript:;" class="circle-item" data-index="'+j+'">'+ (j+1) +'</a>';
+					}
+					this.circleWrap.html(this.yuan);
+					circles = this.circleWrap.find('.circle-item');
+					circles.eq(0).addClass('active')
+				},
+				//小圆圈随动
+				circleFollow: function(){
+					this.circles = this.circleWrap.find('.circle-item');
+					var that = this;
+					this.circles.click(function(){
+						if(that.flag){
+							return;
+						}
+						that.index = that.circles.index( this );
+						that.imgSwitch();
+					});
+				},
+				//图片移动
+				imgSwitch: function(){
+					this.flag = true;
+					var that = this;
+					if( this.index == 4 ){
+						this.rightBtn.hide();
+					}else {
+						this.rightBtn.show();
+					}
+					if( this.index == 0 ){
+						this.leftBtn.hide();
+					}else {
+						this.leftBtn.show();
+					};
+					
+					this.imgWrapper.stop(true).animate({
+						marginLeft: -1 * this.index * this.width
+					},1000,function(){
+						that.flag = false;
+					});
+					this.circles = this.circleWrap.find('.circle-item');
+					this.circles.eq(this.index).addClass('active').siblings().removeClass('active');
+				}
+			};
+			banner.init();
+
+		</script>
+	</body>
+</html>
