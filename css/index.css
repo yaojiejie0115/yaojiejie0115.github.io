@@ -176,6 +176,7 @@
 	position: absolute;
 	top:50%;
 	margin-top:-33px;
+	display: none;
 	height:66px;
 	width:27px;
 }

@@ -70,6 +70,7 @@ $(function(){
 		main: $('.banner'),
 		imgWrapper: $('.img-wrapper'),
 		imgs: $('.banner .img-item'),
+		arrow: $('.arrow'),
 		arrowL: $('.arrow-left'),
 		arrowR: $('.arrow-right'),
 		width: 0,
@@ -94,6 +95,10 @@ $(function(){
 			this.next();
 			//点击左侧按钮切换
 			this.prev();
+			//获焦
+			this.fcu();
+			//失焦
+			this.blu();
 		},
 		//自动播放
 		autoPlay: function(){
@@ -146,6 +151,28 @@ $(function(){
 				that.flag = false;
 			});
 		},
+		//获焦左右点击显示
+		/*main.focus(function(){
+			arrow.show();
+		})*/
+		fcu: function(){
+			var that=this;
+			this.main.focus(function(){
+				that.arrow.show();
+			});
+		},
+		blu: function(){
+			var that=this;
+			this.main.blur(function(){
+				that.arrow.hide();
+			});
+		},
+		
+		
+		
+		
+		
+		
 		
 		/*this.imgWrapper.stop(true).animate({
 			marginLeft: -1 * this.index * this.width

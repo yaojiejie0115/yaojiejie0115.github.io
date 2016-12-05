@@ -50,26 +50,103 @@
 	vertical-align:middle;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*注册*/
+.login {
+	-padding-top: 20px;
+	width: 960px;
+} 
+.login .login-box{
+	background: url(../images/bg_main.jpg) no-repeat;
+	height: 517px;
+	width: 960px;
+	position:relative;
+}
+.login .login-box .welcome{
+	position: absolute;
+	left:66px;
+	top: 27px;
+}
+.login .login-box input{
+	font-size: 12px;
+	border:1px solid #bbb;
+	background: #fff;
+	color:#6c6c6c;
+}
+.login .login-box .login-content{
+	padding: 200px 0 0 104px;
+}
+.login .login-box .login-content .input-zone{
+	height:40px;
+	position: relative;
+}
+.login .login-box .login-content .input-f{
+	margin: -60px 0 20px 0;
+}
+.login .login-box .login-content .input-f p{
+	margin-left: 106px;
+	color: #8e0c3a;
+	font-size: 17px;
+}
+.login .login-box .login-content .input-zone .input-l{
+	width:72px;
+	margin-top: 1px;
+	float: left;
+	color:#666;
+	font-family: "微软雅黑";
+	display: inline;
+}
+.login .login-box .login-content .input-zone .input-r{
+	float: left;
+	display: inline;
+}
+.login .login-box .login-content .input-zone .input-r .input-r-i{
+	width:200px;
+	height:20px;
+	padding-left: 2px;
+	font: 12px/20px "微软雅黑";
+	color:#ccc;
+}
+.login .login-box .login-content .input-penult{
+	width:450px;
+	height:auto;
+	margin-bottom: 20px;
+}
+.login .login-box .login-content .input-penult .input-r{
+	margin-left: 72px;
+	float: left;
+}
+.login .login-box .login-content .input-penult label{
+	float: right;
+	display: inline;
+}
+.login .login-box .login-content .input-last{
+	width:450px;
+	height:auto;
+	margin-bottom: 20px;	
+}
+.login .login-box .login-content .input-last .input-r{
+	margin-left: 72px;
+	float: left;	
+}
+.login .login-box .login-content .input-last .input-r .inner-r-btn{
+	width:204px;
+	height:30px;
+	border:0;
+	color:#fff;
+	background: #8e0c3a;
+	cursor: pointer;
+}
+.login .login-box .login-content .input-last .input-r .input-r-t{
+	margin-top: 5px;
+	text-align: right;
+}
+.login .login-box .login-content .input-last .input-r .input-r-t a{
+	color: #8e0c3a;
+}
+.login .login-box .login-content .input-last .hint{
+	padding-top: 10px;
+	color: #8e0c3a;
+}
 
 
 
