@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/public.css" />
-		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/enter.css" />
 	</head>
 	<body>
 		
@@ -37,24 +37,17 @@
 		<div class="login margin">
 			<div class="login-box">
 				<div class="welcome">
-					<img src="images/register_bg.png"/>
+					<img src="images/login_bg.png"/>
 				</div>
 				<form action="" method="post" class="login-item">
 					<input type="submit" value=""/>
 					<div class="login-content">
-						<div class="input-zone input-f">
-							<p>
-								手机验证完成即送
-								<b>888</b>
-								元优惠券
-							</p>
-						</div>
 						<div class="input-zone clear">
 							<div class="input-l">
 								<i>手机/邮箱：</i>
 							</div>
 							<div class="input-r">
-								<input type="text"  value="手机注册更享好礼" class="input-r-i username"/>
+								<input type="text" class="input-r-i username"/>
 							</div>
 						</div>
 						<div class="input-zone clear">
@@ -65,27 +58,19 @@
 								<input type="password"  value="" class="input-r-i password"/>
 							</div>
 						</div>
-						<div class="input-zone clear">
-							<div class="input-l">
-								<i>确认&nbsp;密码：</i>
-							</div>
-							<div class="input-r">
-								<input type="password"  value="" class="input-r-i password-check"/>
-							</div>
-						</div>
 						<div class="input-zone input-penult clear">
-							<div class="input-r">
-								<input type="checkbox"  checked="checked" id="subscribe"/>
-								<label for="subscribe">订阅美西时尚资讯</label>
+							<div class="input-r clear">
+								<input type="checkbox"  checked="checked" id="subscribe" class="input-r-l"/>
+								<label for="subscribe">下次自动登录</label>
+								<a href="#" class="input-r_a">忘记密码？</a>	
 							</div>
 						</div>
 						<div class="input-zone input-last clear">
 							<div class="input-r ">
-								<input type="button" class="inner-r-btn submit" value="注册" / >
+								<input type="button" class="inner-r-btn submit" value="登录">
 								<br />
 								<div class="input-r-t">
-									已注册？
-									<a href="enter.html">登录</a>
+									<a href="login.html">立即注册</a>
 								</div>
 								<p class="hint"></p>
 							</div>
@@ -150,6 +135,6 @@
 		
 		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/enter.js"></script>
 	</body>
 </html>

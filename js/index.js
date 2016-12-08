@@ -3,7 +3,7 @@ $(function(){
 		var secondBox = $('.second-box');
 		var second = $('.second');
 			second.mouseenter(function(){
-				secondBox.slideDown();
+				secondBox.show();
 			});
 			second.mouseleave(function(){
 				secondBox.hide();
@@ -69,43 +69,36 @@ $(function(){
 	var banner = {
 		main: $('.banner'),
 		imgWrapper: $('.img-wrapper'),
-		imgs: $('.banner .img-item'),
+		imgs: $('.img-item'),
 		arrow: $('.arrow'),
 		arrowL: $('.arrow-left'),
 		arrowR: $('.arrow-right'),
 		width: 0,
 		index:0,
+		firstImg:null,
 		flag: false,
 		timer: null,
 		init: function(){
-			/*
-			 	$('p').width()  设置或者获取元素的宽度，如果获取时有多个p，只获取第一个p的样式值
-			*/
-			this.width =  this.imgs[0].offsetWidth;
-			//this.imgs.width(this.width);
-			//为了不出现图片显示效果不一样的bug，事先让图片隐藏，设置宽度后再显示
-			//this.imgs.show();
+			
+			//获取元素的宽度
+			this.width =  this.imgs.eq(0).width();
 			//自动播放
 			this.autoPlay();
 			//鼠标事件
 			this.mouse();
 			//动态添加最后一张图片
-			//this.addImg();
+			this.firstImg();
 			//点击右侧按钮切换
 			this.next();
 			//点击左侧按钮切换
 			this.prev();
-			//获焦
-			this.fcu();
-			//失焦
-			this.blu();
 		},
 		//自动播放
 		autoPlay: function(){
 			var that = this;
 			timer = setInterval(function(){
 				that.index++;
-				that.index %= that.imgs.length;
+				//that.index %= that.imgs.length;
 				that.imgSwitch();
 			},1600);
 			
@@ -113,12 +106,24 @@ $(function(){
 		//鼠标事件
 		mouse: function(){
 			var that = this;
-			this.imgWrapper.hover(function(){
+			this.main.hover(function(){
 				clearInterval(timer);
+				//鼠标移出点击图标显示
+				that.arrow.show();
 			},function(){
 				that.autoPlay();
+				//鼠标移出点击图标消失
+				that.arrow.hide();
 			});
 		},
+		
+		//动态给最后一个位置添加第一张图片
+		firstImg: function(){
+			var that = this;
+			this.imgWrapper.append( this.imgWrapper.find('a').eq(0).clone(true) )
+			this.imgs = $('.img-item')
+		},
+		
 		//点击右边按钮到下一张
 		next: function(){
 			var that = this;
@@ -145,84 +150,29 @@ $(function(){
 		imgSwitch: function(){
 			this.flag = true;
 			var that = this;
+			//判断是否到达右边界  (如果是右边界，还往右的话，瞬间将图片替换到第一张)
+			if(this.index >= this.imgs.length){
+				this.imgWrapper.css({
+					marginLeft: 0
+				});
+				this.index = 1;
+			}
+			//左边界处理 (如果是左边界，还往左的话，瞬间将图片替换到最后一张)
+			if(this.index <= -1){
+				this.imgWrapper.css({
+					marginLeft: -this.imgs.eq(0).width() * (this.imgs.length-1)
+				});
+				this.index = this.imgs.length-2;
+			}
 			this.imgWrapper.stop(true).animate({
 				marginLeft: -1 * this.index * this.width
 			},1000,function(){
 				that.flag = false;
 			});
 		},
-		//获焦左右点击显示
-		/*main.focus(function(){
-			arrow.show();
-		})*/
-		fcu: function(){
-			var that=this;
-			this.main.focus(function(){
-				that.arrow.show();
-			});
-		},
-		blu: function(){
-			var that=this;
-			this.main.blur(function(){
-				that.arrow.hide();
-			});
-		},
 		
-		
-		
-		
-		
-		
-		
-		/*this.imgWrapper.stop(true).animate({
-			marginLeft: -1 * this.index * this.width
-		},1000,function(){
-			that.flag = false;
-		});
-
-		that.index %= that.imgs.length;
-				that.imgWrapper.animate({
-					marginLeft: -1 * that.index * that.width
-				},600);
-			},1600);
-		*/
-		/*
-			动态给最后一个位置添加第一张图片
-		*/
-		
-		/*addImg: function(){
-			this.imgWrapper.find('img').eq(0).clone().append(this.imgWrapper)
-		}*/
 	};
 	banner.init();
 	
-	//滚动展示区
-	var roll = {
-		rollBox: $('.roll'),
-		rollItem: $('.roll-item'),
-		imgs: $('.banner .img-item'),
-		arrowL: $('.arrow-left'),
-		arrowR: $('.arrow-right'),
-		width: 0,
-		index:0,
-		timer: null,
-		init: function(){
-			this.width =  this.imgs[0].offsetWidth;
-			//自动播放
-			this.autoPlay();
-			
-		},
-		//自动播放
-		autoPlay: function(){
-			var that = this;
-			timer = setInterval(function(){
-				that.index++;
-				that.index %= that.imgs.length;
-				that.imgWrapper.animate({
-					marginLeft: -1 * that.index * that.width
-				},600);
-			},1600);
-			
-		},
-	}
+	
 });
