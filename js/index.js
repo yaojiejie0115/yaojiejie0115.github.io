@@ -100,7 +100,7 @@ $(function(){
 				that.index++;
 				//that.index %= that.imgs.length;
 				that.imgSwitch();
-			},1600);
+			},2000);
 			
 		},
 		//鼠标事件
